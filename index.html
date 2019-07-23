@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript" src='./test.js'></script>
+<script type="text/javascript">
+	var listener = new Listen()
+	listener.on('click', () => {
+		console.log('clicked 1 ...')
+	})
+	listener.on('click', () => {
+		console.log('clicked 2 ...')
+	})
+	listener.on('hover', () => {
+		console.log('hover 1 ...')
+	})
+	listener.emit('click')
+	listener.emit('hover')
+	listener.remove('click').on('click', () => {
+		console.log('click again ...')
+	})
+	listener.emit('click')
+</script>
+</body>
+</html>
